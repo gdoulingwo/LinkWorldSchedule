@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_setting"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.customschedule.ui.NavSetting">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/nav_setting_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        app:theme="@style/ImageTranslucentTheme"
+        app:title="@string/app_name" />
+
+    <TextView
+        android:id="@+id/tv_oppenAgreement"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/setting_tv_height"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        android:elevation="1dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="30dp"
+        android:text="开源许可"
+        android:textColor="@color/hui" />
+
+    <TextView
+        android:id="@+id/widget_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/setting_tv_height"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:paddingLeft="30dp"
+        android:text="关于"
+        android:textColor="@color/hui" />
+
+
+</LinearLayout>

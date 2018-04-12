@@ -1,0 +1,27 @@
+<tbody id="Table6"><tr>
+	<td colspan="2" rowspan="1" width="2%">时间</td><td align="Center" width="14%">星期一</td><td align="Center" width="14%">星期二</td><td align="Center" width="14%">星期三</td><td align="Center" width="14%">星期四</td><td align="Center" width="14%">星期五</td><td class="noprint" align="Center" width="14%">星期六</td><td class="noprint" align="Center" width="14%">星期日</td>
+</tr><tr>
+	<td colspan="2">早晨</td><td align="Center">&nbsp;</td><td align="Center">&nbsp;</td><td align="Center">&nbsp;</td><td align="Center">&nbsp;</td><td align="Center">&nbsp;</td><td class="noprint" align="Center">&nbsp;</td><td class="noprint" align="Center">&nbsp;</td>
+</tr><tr>
+	<td rowspan="4" width="1%">上午</td><td width="1%">第1节</td><td align="Center" width="7%">&nbsp;</td><td align="Center" rowspan="2" width="7%">汇编语言<br>周二第1,2节{第6-15周}<br>叶晓霞(叶晓霞)<br>钟海楼03019(多)</td><td align="Center" rowspan="2" width="7%">计算机组成与结构<br>周三第1,2节{第1-16周}<br>彭小红(彭小红)<br>钟海楼02019(多)</td><td align="Center" width="7%">&nbsp;</td><td align="Center" width="7%">&nbsp;</td><td class="noprint" align="Center" rowspan="2" width="7%">(网络课)海洋的前世今生<br>周六第1,2节{第11-11周}<br>薛明<br>第二教学楼B5402(多)<br><br>(网络课)海洋的前世今生<br>周六第1,2节{第6-6周}<br>薛明<br>第二教学楼B5402(多)<br><br>(网络课)海洋的前世今生<br>周六第1,2节{第2-2周}<br>薛明<br>第二教学楼B5402(多)<br><br>(网络课)海洋的前世今生<br>周六第1,2节{第16-16周}<br>薛明<br>第二教学楼B5402(多)<br><br>(网络课)海洋的前世今生<br>周六第1,2节{第13-13周}<br>薛明<br>第二教学楼B5402(多)</td><td class="noprint" align="Center" width="7%">&nbsp;</td>
+</tr><tr>
+	<td>第2节</td><td align="Center">&nbsp;</td><td align="Center">&nbsp;</td><td align="Center">&nbsp;</td><td class="noprint" align="Center">&nbsp;</td>
+</tr><tr>
+	<td>第3节</td><td align="Center">&nbsp;</td><td align="Center" rowspan="2">计算机组成与结构<br>周二第3,4节{第11-16周}<br>彭小红(彭小红)<br>科技楼510<br><br>计算机组成与结构<br>周二第3,4节{第1-10周}<br>彭小红(彭小红)<br>主楼703(多)</td><td align="Center" rowspan="2">计算机网络<br>周三第3,4节{第1-16周}<br>刘思凤(刘思凤)<br>主楼704(多)</td><td align="Center" rowspan="2">大学英语4<br>周四第3,4节{第1-13周|单周}<br>彭鸽(彭鸽)<br>兴教楼403<br><br>大学英语4<br>周四第3,4节{第2-14周|双周}<br>彭鸽(彭鸽)<br>主楼616(多)</td><td align="Center" rowspan="2">概率论与数理统计<br>周五第3,4节{第1-14周}<br>数学1<br>钟海楼04024(多)</td><td class="noprint" align="Center">&nbsp;</td><td class="noprint" align="Center">&nbsp;</td>
+</tr><tr>
+	<td>第4节</td><td align="Center">&nbsp;</td><td class="noprint" align="Center">&nbsp;</td><td class="noprint" align="Center">&nbsp;</td>
+</tr><tr>
+	<td rowspan="4" width="1%">下午</td><td>第5节</td><td align="Center">&nbsp;</td><td align="Center">&nbsp;</td><td align="Center">&nbsp;</td><td align="Center" rowspan="2">音乐欣赏<br>周四第5,6节{第1-12周}<br>杜沄<br>主楼203(多)</td><td align="Center" rowspan="2">计算机网络<br>周五第5,6节{第1-4周}<br>刘思凤(刘思凤)<br>钟海楼05030(多)<br><br>汇编语言<br>周五第5,6节{第6-8周}<br>叶晓霞(叶晓霞)<br>钟海楼05030(多)</td><td class="noprint" align="Center">&nbsp;</td><td class="noprint" align="Center">&nbsp;</td>
+</tr><tr>
+	<td>第6节</td><td align="Center">&nbsp;</td><td align="Center">&nbsp;</td><td align="Center">&nbsp;</td><td class="noprint" align="Center">&nbsp;</td><td class="noprint" align="Center">&nbsp;</td>
+</tr><tr>
+	<td>第7节</td><td align="Center" rowspan="2">大学英语4<br>周一第7,8节{第1-14周}<br>彭鸽(彭鸽)<br>主楼626(多)</td><td align="Center" rowspan="2">轮滑<br>周二第7,8节{第1-13周}<br>臧勇<br></td><td align="Center">&nbsp;</td><td align="Center" rowspan="2">概率论与数理统计<br>周四第7,8节{第1-14周}<br>数学1<br>主楼508(多)</td><td align="Center">&nbsp;</td><td class="noprint" align="Center">&nbsp;</td><td class="noprint" align="Center">&nbsp;</td>
+</tr><tr>
+	<td>第8节</td><td align="Center">&nbsp;</td><td align="Center">&nbsp;</td><td class="noprint" align="Center">&nbsp;</td><td class="noprint" align="Center">&nbsp;</td>
+</tr><tr>
+	<td rowspan="2" width="1%">晚上</td><td>第9节</td><td align="Center">&nbsp;</td><td align="Center" rowspan="2">毛泽东思想和中国特色社会主义理论体系概论<br>周二第9,10节{第1-16周}<br>谭月清<br>主楼228(多)</td><td align="Center">&nbsp;</td><td align="Center" rowspan="2">毛泽东思想和中国特色社会主义理论体系概论<br>周四第9,10节{第1-16周}<br>谭月清<br>主楼228(多)</td><td align="Center">&nbsp;</td><td class="noprint" align="Center">&nbsp;</td><td class="noprint" align="Center">&nbsp;</td>
+</tr><tr>
+	<td>第10节</td><td align="Center">&nbsp;</td><td align="Center">&nbsp;</td><td align="Center">&nbsp;</td><td class="noprint" align="Center">&nbsp;</td><td class="noprint" align="Center">&nbsp;</td>
+</tr>
+</tbody>
+

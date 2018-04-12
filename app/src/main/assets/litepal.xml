@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<litepal>
+    <dbname value="Schedule" />
+    <version value="3" />
+
+    <list>
+        <mapping class="com.example.customschedule.http.bean.DIYCourses" />
+        <mapping class="com.example.customschedule.http.bean.DIYWeek" />
+        <mapping class="com.example.customschedule.http.bean.DIYDaySchedule" />
+    </list>
+</litepal>

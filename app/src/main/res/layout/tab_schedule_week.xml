@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tab_tv_nowweek"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="5dp"
+        android:background="@color/transparent"
+        android:elevation="1dp"
+        android:gravity="center"
+        android:paddingBottom="4dp"
+        android:paddingTop="3dp"
+        android:text="第一周"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/TabWeekTitleStyle"
+                android:text="周一" />
+
+            <TextView
+                android:id="@+id/textView7"
+                style="@style/TabWeekTitleStyle"
+                android:text="周二" />
+
+            <TextView
+                style="@style/TabWeekTitleStyle"
+                android:text="周三" />
+
+            <TextView
+                style="@style/TabWeekTitleStyle"
+                android:text="周四" />
+
+            <TextView
+                android:id="@+id/textView4"
+                style="@style/TabWeekTitleStyle"
+                android:text="周五" />
+
+            <TextView
+                android:id="@+id/textView6"
+                style="@style/TabWeekTitleStyle"
+                android:text="周六" />
+
+            <TextView
+                style="@style/TabWeekTitleStyle"
+                android:text="周日" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/transparent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/TabCourseTitleStyle"
+                        android:text="1" />
+
+                    <TextView
+                        style="@style/TabCourseTitleStyle"
+                        android:text="2" />
+
+                    <TextView
+                        style="@style/TabCourseTitleStyle"
+                        android:text="3" />
+
+                    <TextView
+                        style="@style/TabCourseTitleStyle"
+                        android:text="4" />
+
+                    <TextView
+                        style="@style/TabCourseTitleStyle"
+                        android:text="5" />
+
+                    <TextView
+                        style="@style/TabCourseTitleStyle"
+                        android:text="6" />
+
+                    <TextView
+                        android:id="@+id/textView"
+                        style="@style/TabCourseTitleStyle"
+                        android:text="7" />
+
+                    <TextView
+                        style="@style/TabCourseTitleStyle"
+                        android:text="8" />
+
+                    <TextView
+                        style="@style/TabCourseTitleStyle"
+                        android:text="9" />
+
+                    <TextView
+                        style="@style/TabCourseTitleStyle"
+                        android:text="10" />
+
+                    <TextView
+                        style="@style/TabCourseTitleStyle"
+                        android:text="11" />
+
+                    <TextView
+                        style="@style/TabCourseTitleStyle"
+                        android:text="12" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tab_week_ll_week"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/transparent"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:id="@+id/day1"
+                        style="@style/TabCourseLLStyle" />
+
+                    <RelativeLayout
+                        android:id="@+id/day2"
+                        style="@style/TabCourseLLStyle" />
+
+                    <RelativeLayout
+                        android:id="@+id/day3"
+                        style="@style/TabCourseLLStyle" />
+
+                    <RelativeLayout
+                        android:id="@+id/day4"
+                        style="@style/TabCourseLLStyle" />
+
+                    <RelativeLayout
+                        android:id="@+id/day5"
+                        style="@style/TabCourseLLStyle" />
+
+                    <RelativeLayout
+                        android:id="@+id/day6"
+                        style="@style/TabCourseLLStyle" />
+
+                    <RelativeLayout
+                        android:id="@+id/day7"
+                        style="@style/TabCourseLLStyle" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

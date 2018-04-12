@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="280dp"
+        android:layout_height="320dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="8dp"
+            android:paddingStart="24dp"
+            android:paddingTop="8dp"
+            android:text="周数选择"
+            android:textSize="23sp" />
+
+        <TableLayout
+            android:id="@+id/table_week"
+            android:layout_width="251dp"
+            android:layout_height="176dp"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <TableRow>
+
+                <CheckBox
+                    android:id="@+id/textview_day1"
+                    android:layout_width="50dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/choose_week_bg"
+                    android:button="@null"
+                    android:checked="false"
+                    android:gravity="center"
+                    android:text="1" />
+
+                <CheckBox
+                    android:id="@+id/textview_day2"
+                    android:layout_width="50dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/choose_week_bg"
+                    android:button="@null"
+                    android:checked="false"
+                    android:gravity="center"
+                    android:text="2" />
+
+                <CheckBox
+                    android:id="@+id/textview_day3"
+                    android:layout_width="50dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/choose_week_bg"
+                    android:button="@null"
+                    android:checked="false"
+                    android:gravity="center"
+                    android:text="3" />
+
+                <CheckBox
+                    android:id="@+id/textview_day4"
+                    android:layout_width="50dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/choose_week_bg"
+                    android:button="@null"
+                    android:checked="false"
+                    android:gravity="center"
+                    android:text="4" />
+
+                <CheckBox
+                    android:id="@+id/textview_day5"
+                    android:layout_width="50dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/choose_week_bg"
+                    android:button="@null"
+                    android:checked="false"
+                    android:gravity="center"
+                    android:text="5" />
+            </TableRow>
+
+            <TableRow>
+
+                <CheckBox
+                    android:id="@+id/textview_day6"
+                    android:layout_width="50dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/choose_week_bg"
+                    android:button="@null"
+                    android:checked="false"
+                    android:gravity="center"
+                    android:text="6" />
+
+                <CheckBox
+                    android:id="@+id/textview_day7"
+                    android:layout_width="50dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/choose_week_bg"
+                    android:button="@null"
+                    android:checked="false"
+                    android:gravity="center"
+                    android:text="7" />
+
+                <CheckBox
+                    android:id="@+id/textview_day8"
+                    android:layout_width="50dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/choose_week_bg"
+                    android:button="@null"
+                    android:checked="false"
+                    android:gravity="center"
+                    android:text="8" />
+
+                <CheckBox
+                    android:id="@+id/textview_day9"
+                    android:layout_width="50dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/choose_week_bg"
+                    android:button="@null"
+                    android:checked="false"
+                    android:gravity="center"
+                    android:text="9" />
+
+                <CheckBox
+                    android:id="@+id/textview_day10"
+                    android:layout_width="50dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/choose_week_bg"
+                    android:button="@null"
+                    android:checked="false"
+                    android:gravity="center"
+                    android:text="10" />
+            </TableRow>
+
+            <TableRow>
+
+                <CheckBox
+                    android:id="@+id/textview_day11"
+                    android:layout_width="50dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/choose_week_bg"
+                    android:button="@null"
+                    android:checked="false"
+                    android:gravity="center"
+                    android:text="11" />
+
+                <CheckBox
+                    android:id="@+id/textview_day12"
+                    android:layout_width="50dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/choose_week_bg"
+                    android:button="@null"
+                    android:checked="false"
+                    android:gravity="center"
+                    android:text="12" />
+
+                <CheckBox
+                    android:id="@+id/textview_day13"
+                    android:layout_width="50dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/choose_week_bg"
+                    android:button="@null"
+                    android:checked="false"
+                    android:gravity="center"
+                    android:text="13" />
+
+                <CheckBox
+                    android:id="@+id/textview_day14"
+                    android:layout_width="50dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/choose_week_bg"
+                    android:button="@null"
+                    android:checked="false"
+                    android:gravity="center"
+                    android:text="14" />
+
+                <CheckBox
+                    android:id="@+id/textview_day15"
+                    android:layout_width="50dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/choose_week_bg"
+                    android:button="@null"
+                    android:checked="false"
+                    android:gravity="center"
+                    android:text="15" />
+            </TableRow>
+
+            <TableRow>
+
+                <CheckBox
+                    android:id="@+id/textview_day16"
+                    android:layout_width="50dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/choose_week_bg"
+                    android:button="@null"
+                    android:checked="false"
+                    android:gravity="center"
+                    android:text="16" />
+
+                <CheckBox
+                    android:id="@+id/textview_day17"
+                    android:layout_width="50dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/choose_week_bg"
+                    android:button="@null"
+                    android:checked="false"
+                    android:gravity="center"
+                    android:text="17" />
+
+                <CheckBox
+                    android:id="@+id/textview_day18"
+                    android:layout_width="50dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/choose_week_bg"
+                    android:button="@null"
+                    android:checked="false"
+                    android:gravity="center"
+                    android:text="18" />
+
+                <CheckBox
+                    android:id="@+id/textview_day19"
+                    android:layout_width="50dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/choose_week_bg"
+                    android:button="@null"
+                    android:checked="false"
+                    android:gravity="center"
+                    android:text="19" />
+
+                <CheckBox
+                    android:id="@+id/textview_day20"
+                    android:layout_width="50dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/choose_week_bg"
+                    android:button="@null"
+                    android:checked="false"
+                    android:gravity="center"
+                    android:text="20" />
+            </TableRow>
+
+            <TableRow>
+
+                <CheckBox
+                    android:id="@+id/textview_day21"
+                    android:layout_width="50dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/choose_week_bg"
+                    android:button="@null"
+                    android:checked="false"
+                    android:gravity="center"
+                    android:text="21" />
+
+                <CheckBox
+                    android:id="@+id/textview_day22"
+                    android:layout_width="50dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/choose_week_bg"
+                    android:button="@null"
+                    android:checked="false"
+                    android:gravity="center"
+                    android:text="22" />
+
+                <CheckBox
+                    android:id="@+id/textview_day23"
+                    android:layout_width="50dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/choose_week_bg"
+                    android:button="@null"
+                    android:checked="false"
+                    android:gravity="center"
+                    android:text="23" />
+
+                <CheckBox
+                    android:id="@+id/textview_day24"
+                    android:layout_width="50dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/choose_week_bg"
+                    android:button="@null"
+                    android:checked="false"
+                    android:gravity="center"
+                    android:text="24" />
+
+                <CheckBox
+                    android:id="@+id/textview_day25"
+                    android:layout_width="50dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/choose_week_bg"
+                    android:button="@null"
+                    android:checked="false"
+                    android:gravity="center"
+                    android:text="25" />
+            </TableRow>
+        </TableLayout>
+
+        <RadioGroup
+            android:layout_width="250dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radio_odd"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/choose_week_bg"
+                android:button="@null"
+                android:checked="false"
+                android:gravity="center"
+                android:text="单周"
+                android:textSize="17sp" />
+
+            <RadioButton
+                android:id="@+id/radio_even"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/choose_week_bg"
+                android:button="@null"
+                android:checked="false"
+                android:gravity="center"
+                android:text="双周"
+                android:textSize="17dp" />
+
+            <RadioButton
+                android:id="@+id/radio_all"
+
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/choose_week_bg"
+                android:button="@null"
+                android:checked="false"
+                android:gravity="center"
+                android:text="全选"
+                android:textSize="17dp" />
+        </RadioGroup>
+
+        <LinearLayout
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                android:id="@+id/txtChooseWeek_yes"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/textview_day"
+                android:gravity="center"
+                android:text="确定"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/txtChooseWeek_no"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/textview_day"
+                android:gravity="center"
+                android:text="取消"
+                android:textSize="20sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

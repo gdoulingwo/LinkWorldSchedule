@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="230dp"
+    android:layout_height="480dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:elevation="3dp"
+        android:gravity="center"
+        android:paddingBottom="8dp"
+        android:paddingTop="7dp"
+        android:text="设置当前周"
+        android:textColor="@color/colorPrimary"
+        android:textSize="21sp"
+        tools:targetApi="lollipop" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/dialog_selectweek_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="horizontal" />
+
+</LinearLayout>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="诗歌">
+        <menu>
+            <item
+                android:id="@+id/nav_DIYSchedule"
+                android:icon="@drawable/nav_schedule"
+                android:title="课程表" />
+            <item
+                android:id="@+id/nav_importSchedule"
+                android:icon="@drawable/nav_importschedule"
+                android:title="导入" />
+
+        </menu>
+    </item>
+    <item android:title="远方">
+        <menu>
+            <!--<item-->
+                <!--android:id="@+id/nav_setting"-->
+                <!--android:icon="@drawable/nav_setting"-->
+                <!--android:title="设置" />-->
+            <item
+                android:icon="@drawable/nav_setting"
+                android:title="现在啥也没有～" />
+        </menu>
+    </item>
+
+</menu>

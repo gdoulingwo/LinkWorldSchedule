@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <size
+        android:width="50dp"
+        android:height="40dp"/>
+    <solid
+        android:color="@color/dialog_message_table"/>
+    <stroke
+        android:color="@color/hui"
+        android:width="0.1px"/>
+
+</shape>

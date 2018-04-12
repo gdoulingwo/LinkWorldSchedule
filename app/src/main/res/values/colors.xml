@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#2fa3a0</color>
+    <color name="colorPrimaryDark">#2fa3a0</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="blue" type="color">#cad4ba</color>
+    <color name="white" type="color">#FDFEFE</color>
+    <color name="hui" type="color">#A3A3A3</color>
+
+    <color name="s_green1" type="color">#F5EFE5</color>
+    <color name="s_green3" type="color">#74a994</color>
+    <color name="s_green4" type="color">#C9D9D0</color>
+    <color name="s_green5" type="color">#8cafa0</color>
+
+    <color name="red" type="color">#F11518</color>
+    <color name="red2" type="color">#FE4848</color>
+
+    <!--课程详情页配色-->
+    <color name="dialog_message_clsName" type="color">@color/transparentPrimary</color>
+    <color name="dialog_message_table" type="color">#e4e1de</color>
+    <color name="dialog_message_setting" type="color">@color/transparentHui</color>
+
+    <!--DIY设置配色-->
+    <color name="DIY_setting_week" type="color">#a1adce</color>
+    <color name="DIY_setting_number" type="color">#FEDADB</color>
+    <color name="DIY_setting_yes" type="color">#888B91</color>
+    <color name="DIY_setting_no" type="color">#d2696c</color>
+
+    <!--widget字体颜色-->
+    <color name="widget_table_textColor" type="color">#565656</color>
+
+    <!--桌面插件颜色-->
+    <color name="widget_item_color1">#607D8B</color>
+    <color name="widget_item_color2">#455A64</color>
+    <color name="widget_item_color3">#607D8B</color>
+    <color name="widget_item_color4">#e02d918f</color>
+    <color name="widget_item_color5">#db23b3af</color>
+
+    <color name="transparent">#00ffffff</color>
+    <color name="transparentHalf">#c0ffffff</color>
+    <color name="transparentPrimary">#c0151515</color>
+    <color name="transparentHui">#c0A3A3A3</color>
+
+    <!--其他的颜色-->
+    <color name="gray">#cccccc</color>
+    <color name="black">#a0151515</color>
+    <color name="page_bg">#f5f7f8</color>
+    <color name="divider">#e7e7e7</color>
+    <color name="trmainColor">#772196F3</color>
+
+    <color name="one">#b48af28d</color>
+    <color name="two">#b400ff9d</color>
+    <color name="three">#b4ff6200</color>
+    <color name="four">#b4e7554e</color>
+    <color name="five">#b44695ff</color>
+    <color name="six">#b4ca71ff</color>
+    <color name="seven">#b43daff1</color>
+    <color name="eight">#b45d5dff</color>
+    <color name="nine">#b480deea</color>
+    <color name="ten">#b42f88ff</color>
+    <color name="none">#322b2b2b</color>
+
+    <color name="widgetBg">#b4ffffff</color>
+    <color name="widgetText">#000000</color>
+    <color name="widgetFont">#2f88ff</color>
+</resources>
