@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import com.example.customschedule.R;
 import com.example.customschedule.ui.adapter.MyItemClickListener;
-import com.example.customschedule.ui.fragment.ScheduleWeekRefresh;
 import com.example.customschedule.util.DateUtil;
 import com.example.customschedule.util.RecyclerAdapter;
 
@@ -22,17 +21,15 @@ import java.util.ArrayList;
  * @date 2018/2/24
  */
 
-public class DialogSelectWeek extends Dialog implements MyItemClickListener {
+public abstract class DialogSelectWeek extends Dialog implements MyItemClickListener {
+    private TextView tv;
     private Context mContext;
     private ArrayList<String> listItem;
-    private View view;
-    private TextView tv;
 
-    public DialogSelectWeek(Context context, View view, TextView tv) {
+    public DialogSelectWeek(Context context, TextView tv) {
         super(context);
-        this.mContext = context;
-        this.view = view;
         this.tv = tv;
+        this.mContext = context;
     }
 
     @Override
@@ -58,7 +55,7 @@ public class DialogSelectWeek extends Dialog implements MyItemClickListener {
     private void initData() {
         listItem = new ArrayList<>();
         for (int i = 1; i < 26; i++) {
-            listItem.add("第" + String.valueOf(i) + "周");
+            listItem.add(String.valueOf(i) + "周");
         }
     }
 
@@ -71,9 +68,14 @@ public class DialogSelectWeek extends Dialog implements MyItemClickListener {
         String temp = "第" + String.valueOf(position + 1) + "周";
         tv.setText(temp);
 
-        final ScheduleWeekRefresh scheduleWeekRefresh = new ScheduleWeekRefresh(mContext, this.view);
-        scheduleWeekRefresh.refresh(position);
-
+        afterClick(position);
         this.dismiss();
     }
+
+    /**
+     * 在点击之后刷新课表
+     *
+     * @param position 位置
+     */
+    abstract void afterClick(int position);
 }

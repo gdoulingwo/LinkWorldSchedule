@@ -6,18 +6,16 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.os.Bundle;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.RadioButton;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
-import com.example.customschedule.http.bean.DIYWeek;
 import com.example.customschedule.R;
+import com.example.customschedule.http.bean.DIYWeek;
 
 import org.litepal.crud.DataSupport;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -25,24 +23,14 @@ import java.util.List;
  * @date 2018/2/1
  */
 
-public class Dialog_ChooseWeek extends Dialog {
-    List<DIYWeek> list_DIYWeek = new ArrayList<>();
-    private DIYWeek DIYWeeks;
+public class DialogChooseWeek extends Dialog {
+    private DIYWeek diyWeeks;
     private String iID;
-    private RadioButton radio_odd;
-    private RadioButton radio_even;
-    private RadioButton radio_all;
     private TableLayout tab;
-    private TextView yes;
-    private TextView no;
 
-    public Dialog_ChooseWeek(Context context, String id) {
+    public DialogChooseWeek(Context context, String id) {
         super(context);
         iID = id;
-    }
-
-    public Dialog_ChooseWeek(Context context, int theme) {
-        super(context, theme);
     }
 
     @Override
@@ -53,22 +41,21 @@ public class Dialog_ChooseWeek extends Dialog {
         setCanceledOnTouchOutside(false);
 
         tab = findViewById(R.id.table_week);
-        final DIYWeek publicDIYWeek = initColumn(tab, 0);
 
-        radio_odd = findViewById(R.id.radio_odd);
-        radio_even = findViewById(R.id.radio_even);
-        radio_all = findViewById(R.id.radio_all);
-        setRadioEvent(radio_odd, 1);
-        setRadioEvent(radio_even, 2);
-        setRadioEvent(radio_all, 3);
+        RadioButton radioOdd = findViewById(R.id.radio_odd);
+        RadioButton radioEven = findViewById(R.id.radio_even);
+        RadioButton radioAll = findViewById(R.id.radio_all);
+        setRadioEvent(radioOdd, 1);
+        setRadioEvent(radioEven, 2);
+        setRadioEvent(radioAll, 3);
 
-        yes = findViewById(R.id.txtChooseWeek_yes);
-        no = findViewById(R.id.txtChooseWeek_no);
+        TextView yes = findViewById(R.id.txtChooseWeek_yes);
+        TextView no = findViewById(R.id.txtChooseWeek_no);
         no.setOnClickListener(v -> {
             DataSupport.deleteAll(DIYWeek.class, "iId = ?", String.valueOf(iID));
-            Dialog_ChooseWeek.this.dismiss();
+            DialogChooseWeek.this.dismiss();
         });
-        yes.setOnClickListener(v -> Dialog_ChooseWeek.this.dismiss());
+        yes.setOnClickListener(v -> DialogChooseWeek.this.dismiss());
     }
 
 
@@ -85,13 +72,13 @@ public class Dialog_ChooseWeek extends Dialog {
         if (choose == 0) {
             List<DIYWeek> searchID = DataSupport.where("iId = ?", String.valueOf(iID)).find(DIYWeek.class);
             if (searchID.size() == 0) {
-                DIYWeeks = new DIYWeek();
-                DIYWeeks.setIId(Integer.parseInt(iID));
+                diyWeeks = new DIYWeek();
+                diyWeeks.setIId(Integer.parseInt(iID));
             } else {
                 // 清除原有的值
                 DataSupport.deleteAll(DIYWeek.class, "iId = ?", String.valueOf(iID));
-                DIYWeeks = new DIYWeek();
-                DIYWeeks.setIId(Integer.parseInt(iID));
+                diyWeeks = new DIYWeek();
+                diyWeeks.setIId(Integer.parseInt(iID));
             }
 
         }
@@ -109,25 +96,22 @@ public class Dialog_ChooseWeek extends Dialog {
                             //先将checkbox相对应的数据库周设置为默认值0
                             final String defaultWeek = "week" + ((CheckBox) ((TableRow) tab.getChildAt(i)).getChildAt(j)).getText().toString();
                             // 设置为默认值
-                            DIYWeeks.setToDefault(defaultWeek);
-                            DIYWeeks.save();
+                            diyWeeks.setToDefault(defaultWeek);
+                            diyWeeks.save();
                             // 为每一个textbox添加监听事件
-                            ((CheckBox) ((TableRow) tab.getChildAt(i)).getChildAt(j)).setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                                @Override
-                                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                                    if (isChecked) {
-                                        //数据储存
-                                        ContentValues valuesadd = new ContentValues();
-                                        //将checkbox的text写入数据库
-                                        valuesadd.put(defaultWeek, Integer.parseInt(buttonView.getText().toString()));
-                                        DataSupport.updateAll(DIYWeek.class, valuesadd, "iId = ?", String.valueOf(iID));
-                                    } else {
-                                        //数据删除
-                                        ContentValues valuesde = new ContentValues();
-                                        //设置为默认值
-                                        valuesde.put(defaultWeek, 0);
-                                        DataSupport.updateAll(DIYWeek.class, valuesde, "iId = ?", String.valueOf(iID));
-                                    }
+                            ((CheckBox) ((TableRow) tab.getChildAt(i)).getChildAt(j)).setOnCheckedChangeListener((buttonView, isChecked) -> {
+                                if (isChecked) {
+                                    //数据储存
+                                    ContentValues valuesadd = new ContentValues();
+                                    //将checkbox的text写入数据库
+                                    valuesadd.put(defaultWeek, Integer.parseInt(buttonView.getText().toString()));
+                                    DataSupport.updateAll(DIYWeek.class, valuesadd, "iId = ?", String.valueOf(iID));
+                                } else {
+                                    //数据删除
+                                    ContentValues valuesde = new ContentValues();
+                                    //设置为默认值
+                                    valuesde.put(defaultWeek, 0);
+                                    DataSupport.updateAll(DIYWeek.class, valuesde, "iId = ?", String.valueOf(iID));
                                 }
                             });
                         }
@@ -170,7 +154,7 @@ public class Dialog_ChooseWeek extends Dialog {
             }
         }
 
-        return DIYWeeks;
+        return diyWeeks;
     }
 
     /**

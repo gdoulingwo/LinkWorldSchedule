@@ -1,6 +1,6 @@
 package com.example.customschedule.ui.fragment;
 
-import android.content.Context;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -8,16 +8,12 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 
-import com.example.customschedule.R;
-import com.example.customschedule.http.Schedule.Import2Database;
 import com.example.customschedule.http.bean.DIYCourses;
 import com.example.customschedule.http.message.RefreshEvent;
-import com.example.customschedule.ui.DIYScheduleActivity;
 import com.example.customschedule.util.DateUtil;
-import com.example.customschedule.view.DialogSelectWeek;
+import com.example.customschedule.view.ScheduleInterface;
+import com.example.customschedule.view.ScheduleView;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -25,117 +21,53 @@ import org.greenrobot.eventbus.ThreadMode;
 import org.litepal.crud.DataSupport;
 
 /**
- * @author hyt
- * @date 2018/2/15
+ * @author wangyu
+ * @describe 课表展示页面
  */
 public class ScheduleWeekFragment extends android.support.v4.app.Fragment {
 
-    protected Context mContent;
-    private int iID;
-    private View view;
     private boolean isFirst;
-    private TextView tvNowWeek;
-    private RelativeLayout day1;
-    private RelativeLayout day2;
-    private RelativeLayout day3;
-    private RelativeLayout day4;
-    private RelativeLayout day5;
-    private RelativeLayout day6;
-    private RelativeLayout day7;
-    private ScheduleWeekRefresh scheduleWeekRefresh;
-
-    /**
-     * 刷新show页面
-     */
-    public void refreshOFMain() {
-        day1.removeAllViews();
-        day2.removeAllViews();
-        day3.removeAllViews();
-        day4.removeAllViews();
-        day5.removeAllViews();
-        day6.removeAllViews();
-        day7.removeAllViews();
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        mContent = getContext();
-    }
+    private ScheduleView scheduleView;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.tab_schedule_week, container, false);
-        scheduleWeekRefresh = new ScheduleWeekRefresh(mContent, view);
+        scheduleView = new ScheduleView(getContext(), new ScheduleInterface() {
+            @Override
+            public void refresh(int position) {
+                new ScheduleWeekRefresh().refresh(position, diyCourses -> {
+                    int step = diyCourses.getStep();
+                    int tempID = diyCourses.getIId();
+                    int start = diyCourses.getStart();
+                    int tempDay = diyCourses.getDay();
+                    String tempClsName = diyCourses.getName();
+                    String tempClsSite = diyCourses.getRoom();
+                    // 此处可以进行优化，将课程名和地点名集合到setTextView方法中，可以顺带优化输入的逻辑
+                    tempClsName = tempClsName.length() > 7 ? tempClsName.substring(0, 7).concat("...") : tempClsName;
+                    String tempTxt = tempClsName + "@" + tempClsSite;
+                    // 填充课表
+                    scheduleView.fullSchedule(tempDay, tempTxt, tempID, start, step, diyCourses.getTypeId());
+                    // 重置天表
+                    if (tempDay == DateUtil.getDayIndexOnWeek()) {
+                        scheduleView.setDaySchedule(tempClsName, tempClsSite, start, step, tempID, tempDay);
+                        EventBus.getDefault().post(new RefreshEvent(true));
+                    }
+                });
+            }
 
-        day1 = view.findViewById(R.id.day1);
-        day2 = view.findViewById(R.id.day2);
-        day3 = view.findViewById(R.id.day3);
-        day4 = view.findViewById(R.id.day4);
-        day5 = view.findViewById(R.id.day5);
-        day6 = view.findViewById(R.id.day6);
-        day7 = view.findViewById(R.id.day7);
-        tvNowWeek = view.findViewById(R.id.tab_tv_nowweek);
+            @Override
+            public DIYCourses findLast() {
+                return DataSupport.findLast(DIYCourses.class);
+            }
 
-        int weekNow = DateUtil.getWeekNow();
-
-        // 刷新并获取数据
-        scheduleWeekRefresh.refresh(weekNow);
-
-        isFirst = true;
-
-        String temp = "第" + String.valueOf(weekNow + 1) + "周";
-        tvNowWeek.setText(temp);
-
-        tvNowWeek.setOnClickListener(v -> {
-            DialogSelectWeek dialogSelectWeek = new DialogSelectWeek(mContent, view, tvNowWeek);
-            dialogSelectWeek.show();
+            @Override
+            public void startActivity(Intent intentDay) {
+                Activity activity = ScheduleWeekFragment.this.getActivity();
+                assert activity != null;
+                activity.startActivity(intentDay);
+            }
         });
-
-        // 星期设置
-        daySetOnClick(day1, 0);
-        daySetOnClick(day2, 1);
-        daySetOnClick(day3, 2);
-        daySetOnClick(day4, 3);
-        daySetOnClick(day5, 4);
-        daySetOnClick(day6, 5);
-        daySetOnClick(day7, 6);
-
-        return view;
-    }
-
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-    }
-
-    private void daySetOnClick(RelativeLayout rl, final int day) {
-        rl.setOnClickListener(v -> {
-            searchiID();
-            Intent intentDay = new Intent();
-            Bundle bundle = new Bundle();
-            bundle.putInt(Import2Database.START, day);
-            bundle.putInt(Import2Database.IID, iID);
-            bundle.putString(Import2Database.NAME, "");
-            bundle.putString(Import2Database.ROOM, "");
-            intentDay.putExtras(bundle);
-            intentDay.setClass(mContent, DIYScheduleActivity.class);
-            startActivity(intentDay);
-        });
-    }
-
-    /**
-     * 查询iID的值
-     */
-    private void searchiID() {
-        //查询表中最后一条数据的iID
-        DIYCourses foriID = DataSupport.findLast(DIYCourses.class);
-        if (foriID == null) {
-            iID = 1;
-        } else {
-            iID = foriID.getIId() + 1;
-        }
+        return scheduleView;
     }
 
     @Override
@@ -146,15 +78,13 @@ public class ScheduleWeekFragment extends android.support.v4.app.Fragment {
             return;
         }
         //刷新页面
-        scheduleWeekRefresh.refresh(DateUtil.getWeekFromSP());
+        scheduleView.refresh(DateUtil.getWeekFromSP());
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        String temp = "第" + String.valueOf(DateUtil.getWeekNow() + 1) + "周";
-        tvNowWeek.setText(temp);
-
+        scheduleView.setCurrentWeek();
         EventBus.getDefault().register(this);
     }
 
@@ -167,7 +97,7 @@ public class ScheduleWeekFragment extends android.support.v4.app.Fragment {
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onMessageEvent(RefreshEvent event) {
         if (!event.isRefresh()) {
-            refreshOFMain();
+            scheduleView.refreshScreen();
         }
     }
 }

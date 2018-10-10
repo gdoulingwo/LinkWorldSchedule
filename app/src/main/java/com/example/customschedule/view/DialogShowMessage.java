@@ -25,18 +25,13 @@ import java.util.List;
  * @date 2018/2/6
  */
 
-public class Dialog_ShowMessage extends Dialog {
+public class DialogShowMessage extends Dialog {
     private int iID;
     private Context context;
     private String clsName;
     private String clsSite;
-    private String clsNumber;
-    private TextView tv_clsName;
-    private TextView tv_clsSite;
-    private TextView tv_clsNumber;
-    private TextView tv_setting;
 
-    public Dialog_ShowMessage(Context context, int iID, View v) {
+    public DialogShowMessage(Context context, int iID, View v) {
         super(context);
         this.iID = iID;
         this.context = context;
@@ -53,24 +48,24 @@ public class Dialog_ShowMessage extends Dialog {
         final DIYCourses diyCourses = listDiycourses.get(0);
 
         // 获取课程名称
-        tv_clsName = findViewById(R.id.dialog_tv_ClsName);
+        TextView tvClsname = findViewById(R.id.dialog_tv_ClsName);
         clsName = diyCourses.getName();
         String tempClsName = clsName;
-        tv_clsName.setText(tempClsName);
+        tvClsname.setText(tempClsName);
         // 获取教室
-        tv_clsSite = findViewById(R.id.dialog_tv_clsSite);
+        TextView tvClssite = findViewById(R.id.dialog_tv_clsSite);
         clsSite = diyCourses.getRoom();
         String tempClsSite = "教室" + "  " + clsSite;
-        tv_clsSite.setText(tempClsSite);
+        tvClssite.setText(tempClsSite);
 
         // 获取所在节数（可有可无）
-        tv_clsNumber = findViewById(R.id.dialog_tv_clsNumber);
+        TextView tvClsnumber = findViewById(R.id.dialog_tv_clsNumber);
         int startNumber = diyCourses.getStart();
         int countNumber = diyCourses.getStep();
         int start = startNumber + 1;
         int end = startNumber + countNumber;
-        clsNumber = String.valueOf(start) + "—" + String.valueOf(end) + "节";
-        tv_clsNumber.setText(clsNumber);
+        String clsNumber = String.valueOf(start) + "—" + String.valueOf(end) + "节";
+        tvClsnumber.setText(clsNumber);
 
         // 生成25个textView
         RelativeLayout rlWeeks = findViewById(R.id.dialog_table_weeks);
@@ -123,9 +118,9 @@ public class Dialog_ShowMessage extends Dialog {
         }
 
         // 编辑按钮
-        tv_setting = findViewById(R.id.dialog_tv_setting);
-        tv_setting.setOnClickListener(v -> {
-            Dialog_ShowMessage.this.dismiss();
+        TextView tvSetting = findViewById(R.id.dialog_tv_setting);
+        tvSetting.setOnClickListener(v -> {
+            DialogShowMessage.this.dismiss();
             int day = diyCourses.getDay() - 1;
             int iID = diyCourses.getIId();
             Intent intentEditor = new Intent();

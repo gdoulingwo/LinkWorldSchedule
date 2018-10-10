@@ -72,7 +72,7 @@ public class WeekScheduleFactory implements RemoteViewsService.RemoteViewsFactor
      */
     @Override
     public void onDataSetChanged() {
-        ScheduleWeekRefresh.refreshWidget(DateUtil.getWeekNow());
+        new ScheduleWeekRefresh().refreshWidget(DateUtil.getWeekNow());
         initData();
     }
 

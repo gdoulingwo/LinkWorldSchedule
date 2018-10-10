@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void setSP() {
-        ScheduleWeekRefresh.refreshWidget(DateUtil.getWeekNow());
+        new ScheduleWeekRefresh().refreshWidget(DateUtil.getWeekNow());
     }
 
     private void setViewPager() {
@@ -240,7 +240,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private class MainPagerAdapter extends FragmentPagerAdapter {
-
         private String[] tabNames;
         private List<Fragment> fragments;
 

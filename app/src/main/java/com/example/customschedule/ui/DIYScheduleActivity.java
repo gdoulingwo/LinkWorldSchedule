@@ -16,7 +16,7 @@ import com.example.customschedule.R;
 import com.example.customschedule.http.Schedule.Import2Database;
 import com.example.customschedule.http.bean.DIYCourses;
 import com.example.customschedule.http.bean.DIYWeek;
-import com.example.customschedule.view.Dialog_ChooseWeek;
+import com.example.customschedule.view.DialogChooseWeek;
 
 import org.litepal.crud.DataSupport;
 
@@ -58,7 +58,7 @@ public class DIYScheduleActivity extends AppCompatActivity {
      */
     private int iID;
 
-    private Dialog_ChooseWeek showdialog;
+    private DialogChooseWeek showdialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,7 +93,7 @@ public class DIYScheduleActivity extends AppCompatActivity {
         // 周数选择
         findViewById(R.id.showdialog).setOnClickListener(v -> {
             // 同时传入iID
-            showdialog = new Dialog_ChooseWeek(DIYScheduleActivity.this, String.valueOf(iID));
+            showdialog = new DialogChooseWeek(DIYScheduleActivity.this, String.valueOf(iID));
             showdialog.show();
         });
 
