@@ -13,7 +13,9 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.blankj.utilcode.util.LogUtils;
 import com.example.customschedule.R;
+import com.example.customschedule.http.Schedule.Import2Database;
 import com.example.customschedule.http.bean.DIYDaySchedule;
 import com.example.customschedule.http.message.RefreshEvent;
 import com.example.customschedule.ui.adapter.DayScheduleAdapter;
@@ -70,8 +72,10 @@ public class ScheduleDayFragment extends android.support.v4.app.Fragment {
     private void readyData() {
         int day = DateUtil.getDayIndexOnWeek();
         //读取当天的数据
-        List<DIYDaySchedule> diyDayScheduleList = DataSupport.where("day = ?",
-                String.valueOf(day)).order("startWeek").find(DIYDaySchedule.class);
+        List<DIYDaySchedule> diyDayScheduleList = DataSupport
+                .where("day = ?", String.valueOf(day))
+                .order("startWeek")
+                .find(DIYDaySchedule.class);
         if (diyDayScheduleList.size() == 0) {
             linearLayout.removeView(textView);
             textView = new TextView(mContext);
@@ -94,10 +98,10 @@ public class ScheduleDayFragment extends android.support.v4.app.Fragment {
             String clsNumber = String.valueOf(start) + "—" + String.valueOf(end) + "节";
 
             HashMap<String, Object> map = new HashMap<>();
-            map.put("name", clsName);
-            map.put("room", clsSite);
+            map.put(Import2Database.NAME, clsName);
+            map.put(Import2Database.ROOM, clsSite);
             map.put("clsNumber", clsNumber);
-//            LogUtils.i("name" + name, "room" + room, "clsNumber" + clsNumber);
+            LogUtils.i("name" + clsName, "room" + clsSite, "clsNumber" + clsNumber);
             listItem.add(map);
         }
     }

@@ -6,9 +6,7 @@ import android.content.Context;
 import android.text.TextUtils;
 
 import com.blankj.utilcode.util.Utils;
-import com.example.customschedule.http.bean.CoursesData;
 import com.tencent.bugly.Bugly;
-import com.tencent.bugly.beta.Beta;
 import com.tencent.bugly.crashreport.CrashReport;
 
 import org.litepal.LitePal;
@@ -16,8 +14,6 @@ import org.litepal.LitePal;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-
-import lombok.Getter;
 
 /**
  * @author hyt
@@ -28,8 +24,6 @@ public class MyApplication extends Application {
     private static MyApplication application;
     @SuppressLint("StaticFieldLeak")
     private static Context context;
-    @Getter(lazy = true)
-    private final CoursesData coursesData = new CoursesData();
 
     public static Context getContext() {
         return context;

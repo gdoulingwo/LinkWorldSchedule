@@ -12,10 +12,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.customschedule.R;
+import com.example.customschedule.http.Schedule.Import2Database;
 import com.example.customschedule.http.bean.DIYCourses;
 import com.example.customschedule.http.message.RefreshEvent;
-import com.example.customschedule.util.DateUtil;
 import com.example.customschedule.ui.DIYScheduleActivity;
+import com.example.customschedule.util.DateUtil;
 import com.example.customschedule.view.DialogSelectWeek;
 
 import org.greenrobot.eventbus.EventBus;
@@ -30,9 +31,10 @@ import org.litepal.crud.DataSupport;
 public class ScheduleWeekFragment extends android.support.v4.app.Fragment {
 
     protected Context mContent;
-    private View view;
     private int iID;
-    private ScheduleWeekRefresh scheduleWeekRefresh;
+    private View view;
+    private boolean isFirst;
+    private TextView tvNowWeek;
     private RelativeLayout day1;
     private RelativeLayout day2;
     private RelativeLayout day3;
@@ -40,8 +42,7 @@ public class ScheduleWeekFragment extends android.support.v4.app.Fragment {
     private RelativeLayout day5;
     private RelativeLayout day6;
     private RelativeLayout day7;
-    private TextView tvNowWeek;
-    private boolean isFirst;
+    private ScheduleWeekRefresh scheduleWeekRefresh;
 
     /**
      * 刷新show页面
@@ -78,7 +79,10 @@ public class ScheduleWeekFragment extends android.support.v4.app.Fragment {
         tvNowWeek = view.findViewById(R.id.tab_tv_nowweek);
 
         int weekNow = DateUtil.getWeekNow();
+
+        // 刷新并获取数据
         scheduleWeekRefresh.refresh(weekNow);
+
         isFirst = true;
 
         String temp = "第" + String.valueOf(weekNow + 1) + "周";
@@ -111,10 +115,10 @@ public class ScheduleWeekFragment extends android.support.v4.app.Fragment {
             searchiID();
             Intent intentDay = new Intent();
             Bundle bundle = new Bundle();
-            bundle.putInt("start", day);
-            bundle.putInt("iId", iID);
-            bundle.putString("name", "");
-            bundle.putString("room", "");
+            bundle.putInt(Import2Database.START, day);
+            bundle.putInt(Import2Database.IID, iID);
+            bundle.putString(Import2Database.NAME, "");
+            bundle.putString(Import2Database.ROOM, "");
             intentDay.putExtras(bundle);
             intentDay.setClass(mContent, DIYScheduleActivity.class);
             startActivity(intentDay);

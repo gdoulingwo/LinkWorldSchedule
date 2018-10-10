@@ -20,7 +20,7 @@ import com.example.customschedule.view.Dialog_ShowMessage;
 import org.greenrobot.eventbus.EventBus;
 import org.litepal.crud.DataSupport;
 
-import java.util.ArrayList;
+import java.lang.ref.WeakReference;
 import java.util.List;
 
 /**
@@ -28,8 +28,8 @@ import java.util.List;
  * @date 2018/2/24
  */
 public class ScheduleWeekRefresh {
-    private static final List<DIYDaySchedule> LIST_DIY_DAY_SCHEDULE = new ArrayList<>();
-    private Context context;
+    private WeakReference<Context> contextWeakReference;
+
     private RelativeLayout day1;
     private RelativeLayout day2;
     private RelativeLayout day3;
@@ -39,7 +39,8 @@ public class ScheduleWeekRefresh {
     private RelativeLayout day7;
 
     public ScheduleWeekRefresh(Context context, View view) {
-        this.context = context;
+        this.contextWeakReference = new WeakReference<>(context);
+
         day1 = view.findViewById(R.id.day1);
         day2 = view.findViewById(R.id.day2);
         day3 = view.findViewById(R.id.day3);
@@ -49,9 +50,14 @@ public class ScheduleWeekRefresh {
         day7 = view.findViewById(R.id.day7);
     }
 
+    /**
+     * 保存数据
+     */
     private static void setDaySchedule(String clsName, String clsSite,
                                        int clsStartNumber, int clsCountNumber,
                                        int iID, int day) {
+        LogUtils.d(clsName, clsSite, clsStartNumber, clsCountNumber, iID, day);
+
         DIYDaySchedule diyDaySchedule = new DIYDaySchedule();
         diyDaySchedule.setName(clsName);
         diyDaySchedule.setRoom(clsSite);
@@ -61,7 +67,6 @@ public class ScheduleWeekRefresh {
         diyDaySchedule.setDay(day);
         // 保存数据
         diyDaySchedule.save();
-        LIST_DIY_DAY_SCHEDULE.add(diyDaySchedule);
     }
 
     public static void refreshWidget(int position) {
@@ -80,7 +85,7 @@ public class ScheduleWeekRefresh {
             // iId
             int tempID = tempCourse.getIId();
             //用原生查询查，先利用iID查询相应课程的position相对应的周是否为0
-            Cursor cursor = DataSupport.findBySQL("select * from DIYWeek where iId = ?", String.valueOf(tempID));
+            Cursor cursor = DataSupport.findBySQL("select * from DIYWeek where iid = ?", String.valueOf(tempID));
             if (!cursor.moveToPosition(0)) {
                 System.out.println("moveToPosition return fails, maybe table not created!!!");
                 return;
@@ -188,9 +193,9 @@ public class ScheduleWeekRefresh {
      */
     private void setTextView(String text, final int id, int start,
                              RelativeLayout r1, int step, int typeId) {
-        final TextView tv1 = new TextView(context);
+        final TextView tv1 = new TextView(contextWeakReference.get());
         tv1.setText(text);
-        tv1.setTextColor(context.getResources().getColor(R.color.white));
+        tv1.setTextColor(contextWeakReference.get().getResources().getColor(R.color.white));
         tv1.setTextSize(11);
 
         // 设置宽度和高度
@@ -208,7 +213,7 @@ public class ScheduleWeekRefresh {
         int topMargin = ConvertUtils.dp2px(start);
         params.setMargins(0, topMargin, 0, 0);
 
-        tv1.setBackground(context.getResources().getDrawable(R.drawable.diytextview));
+        tv1.setBackground(contextWeakReference.get().getResources().getDrawable(R.drawable.diytextview));
         // 如果不为零则显示
         switch (typeId) {
             case 0:
@@ -247,13 +252,13 @@ public class ScheduleWeekRefresh {
         }
         tv1.setLayoutParams(params);
         tv1.setOnClickListener(v -> {
-            Dialog showDialog = new Dialog_ShowMessage(context, id, v);
+            Dialog showDialog = new Dialog_ShowMessage(contextWeakReference.get(), id, v);
             showDialog.show();
         });
         r1.addView(tv1);
     }
 
     private void setTVBackground(TextView tv, int drawableId) {
-        tv.setBackground(context.getResources().getDrawable(drawableId));
+        tv.setBackground(contextWeakReference.get().getResources().getDrawable(drawableId));
     }
 }

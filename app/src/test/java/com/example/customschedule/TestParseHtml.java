@@ -140,6 +140,9 @@ public class TestParseHtml {
         System.out.println(str);
         String[] strings = str.split(" ");
         System.out.println("当前的长度 -> " + strings.length);
+        if (strings.length <= 1) {
+            return;
+        }
         // 名称
         String txtClsName = strings[0];
         String regularWeek = strings[1];

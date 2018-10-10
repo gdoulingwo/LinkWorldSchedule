@@ -31,7 +31,8 @@
         </activity>
         <activity
             android:name=".ui.MainActivity"
-            android:label="" />
+            android:label=""
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.DIYScheduleActivity"
             android:label="修改课程"

@@ -13,6 +13,7 @@ import android.widget.Spinner;
 
 import com.blankj.utilcode.util.ToastUtils;
 import com.example.customschedule.R;
+import com.example.customschedule.http.Schedule.Import2Database;
 import com.example.customschedule.http.bean.DIYCourses;
 import com.example.customschedule.http.bean.DIYWeek;
 import com.example.customschedule.view.Dialog_ChooseWeek;
@@ -76,10 +77,10 @@ public class DIYScheduleActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Bundle b = intent.getExtras();
         assert b != null;
-        int defaultDay = b.getInt("start");
-        iID = b.getInt("iId");
-        txtClsName = b.getString("name");
-        txtClsSite = b.getString("room");
+        int defaultDay = b.getInt(Import2Database.START);
+        iID = b.getInt(Import2Database.IID);
+        txtClsName = b.getString(Import2Database.NAME);
+        txtClsSite = b.getString(Import2Database.ROOM);
 
         return defaultDay;
     }
